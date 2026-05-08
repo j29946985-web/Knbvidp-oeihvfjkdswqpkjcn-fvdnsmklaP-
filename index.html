@@ -25,6 +25,14 @@
     </script>
 </head>
 <body>
+    <div id="pin-overlay">
+        <div class="pin-container">
+            <h2>Enter PIN to Access Games</h2>
+            <input type="password" id="pin-input" placeholder="Enter PIN">
+            <button id="pin-submit">Submit</button>
+            <p id="pin-error" style="display:none; color:red;">Incorrect PIN. Try again.</p>
+        </div>
+    </div>
     <header class="site-header">
         <div class="header-inner">
             <nav class="site-nav">
@@ -47,6 +55,32 @@
 
     <script src="games.js"></script>
     <script src="assets/app.js"></script>
+    <script>
+        const pinOverlay = document.getElementById('pin-overlay');
+        const pinInput = document.getElementById('pin-input');
+        const pinSubmit = document.getElementById('pin-submit');
+        const pinError = document.getElementById('pin-error');
+
+        if (sessionStorage.getItem('authenticated') === 'true') {
+            pinOverlay.style.display = 'none';
+        } else {
+            pinSubmit.addEventListener('click', () => {
+                if (pinInput.value === '2021') {
+                    sessionStorage.setItem('authenticated', 'true');
+                    pinOverlay.style.display = 'none';
+                } else {
+                    pinError.style.display = 'block';
+                    pinInput.value = '';
+                }
+            });
+
+            pinInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    pinSubmit.click();
+                }
+            });
+        }
+    </script>
 </body>
 </html>
 
