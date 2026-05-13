@@ -43,7 +43,17 @@
     <main>
         <section class="controls-bar">
             <input id="search" type="search" placeholder="search games..." autocomplete="off" spellcheck="false">
+            <div style="display: flex; gap: 10px; justify-content: center; margin-top: 12px; flex-wrap: wrap;">
+                <button id="view-all-btn" class="view-btn active" style="display: none;">All Games</button>
+                <button id="view-favorites-btn" class="view-btn" style="display: none;">❤ My Favorites</button>
+            </div>
         </section>
+
+        <div id="favorites-section" class="shelf" style="display: none; margin-top: 22px; margin-bottom: 44px;">
+            <h2 class="shelf-title">My Favorite Games</h2>
+            <div class="game-grid" id="favorites-grid"></div>
+            <p id="no-favorites" class="no-results" style="display: none; margin-top: 20px;">No favorites yet. Click the heart icon on any game to add it to your favorites!</p>
+        </div>
 
         <p id="no-results" class="no-results" style="display:none">nothing here</p>
         <div class="game-grid" id="game-grid"></div>

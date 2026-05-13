@@ -262,6 +262,76 @@ main {
     color: var(--text);
 }
 
+/* Favorite Button Styles */
+.game-card-container {
+    position: relative;
+}
+
+.favorite-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(11, 11, 13, 0.85);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+    padding: 0;
+    line-height: 1;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    opacity: 0;
+}
+
+.game-card-container:hover .favorite-btn {
+    opacity: 1;
+}
+
+.favorite-btn:hover {
+    background: rgba(245, 166, 35, 0.2);
+    border-color: var(--accent);
+    transform: scale(1.1);
+}
+
+.favorite-btn.favorited {
+    opacity: 1;
+}
+
+.favorite-btn.favorited:hover {
+    transform: scale(1.15);
+}
+
+/* View Toggle Buttons */
+.view-btn {
+    padding: 8px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    color: var(--text-muted);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.12s;
+    line-height: 1;
+}
+
+.view-btn:hover {
+    color: var(--text);
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+.view-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-fg);
+    font-weight: 600;
+}
 
 .site-footer {
     border-top: 1px solid var(--border);
